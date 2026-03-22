@@ -1,0 +1,21 @@
+// scss/_variables.scss
+
+// COLOR PALETTE (Lujo y Calidez) [cite: 90]
+$color-primary: #46C7B7;    // Turquesa Los Tajibos
+$color-accent-dark: #35a89b;
+$color-secondary: #ffffff;  // Blanco
+$color-dark: #1F1F1F;       // Negro para títulos
+$color-green-tajibos: #1a4731; // Verde oscuro de la bienvenida
+$color-text-gray: #666666;  // Gris para párrafos (La que faltaba)
+
+// CAPAS (OVERLAYS)
+$color-overlay-light: rgba(0, 0, 0, 0.4); 
+$color-overlay-dark: rgba(0, 0, 0, 0.85);
+
+// TYPOGRAPHY
+$font-title: 'Playfair Display', serif;
+$font-body: 'Montserrat', sans-serif;
+
+// RESPONSIVE BREAKPOINTS [cite: 109-112]
+$tablet: 768px;
+$mobile: 480px;

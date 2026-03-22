@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habitaciones y Experiencias | Los Tajibos Hotel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <img src="images/logo-tajibos.png" alt="Logo Los Tajibos">
+            </a>
+            
+            <ul class="nav__list" id="nav-menu">
+                <li><a href="index.html" class="nav__link">Inicio</a></li>
+                <li><a href="servicios.html" class="nav__link active">Habitaciones</a></li>
+                <li><a href="contacto.html" class="nav__link">Contacto</a></li>
+            </ul>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero hero--small" style="height: 50vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/fondo.jpg') no-repeat center/cover;">
+            <div class="hero__content">
+                <h1 class="hero__title">Nuestros Servicios</h1>
+                <p class="hero__subtitle">LUJO Y CONFORT EN CADA DETALLE</p>
+            </div>
+        </section>
+
+        <section class="rooms container section-padding">
+            <div class="text-center">
+                <h2 class="rooms__title">Habitaciones & Suites</h2>
+                <p class="rooms__subtitle" style="margin-bottom: 3rem;">Encuentre el espacio perfecto para su descanso</p>
+            </div>
+
+            <div class="rooms__grid grid">
+                <article class="room-card">
+                    <div class="room-card__img-box">
+                        <img src="images/room1.jpg" alt="Club Executive King">
+                        <div class="room-card__specs">
+                            <span><i class="fas fa-user"></i> 2 Personas</span>
+                            <span><i class="fas fa-bed"></i> 1 Cama King</span>
+                            <span><i class="fas fa-expand"></i> 37.05 Mts2</span>
+                        </div>
+                    </div>
+                    <div class="room-card__data">
+                        <h3>Club Executive King</h3>
+                        <p>Elegancia y confort con vistas exclusivas a nuestros jardines tropicales.</p>
+                        <div class="room-card__footer">
+                            <a href="contacto.html" class="btn btn--primary">RESERVAR</a>
+                            <span class="bold">$150 / Noche</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="room-card">
+                    <div class="room-card__img-box">
+                        <img src="images/room2.jpg" alt="Pool View King">
+                        <div class="room-card__specs">
+                            <span><i class="fas fa-user"></i> 2 Personas</span>
+                            <span><i class="fas fa-bed"></i> 1 Cama King</span>
+                            <span><i class="fas fa-expand"></i> 34.41 Mts2</span>
+                        </div>
+                    </div>
+                    <div class="room-card__data">
+                        <h3>Pool View King</h3>
+                        <p>Despierte con la mejor vista a nuestra icónica piscina central.</p>
+                        <div class="room-card__footer">
+                            <a href="contacto.html" class="btn btn--primary">RESERVAR</a>
+                            <span class="bold">$180 / Noche</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="room-card">
+                    <div class="room-card__img-box">
+                        <img src="images/room3.jpg" alt="Suite Presidencial">
+                        <div class="room-card__specs">
+                            <span><i class="fas fa-user"></i> 4 Personas</span>
+                            <span><i class="fas fa-bed"></i> 2 Camas King</span>
+                            <span><i class="fas fa-expand"></i> 80.00 Mts2</span>
+                        </div>
+                    </div>
+                    <div class="room-card__data">
+                        <h3>Suite Presidencial</h3>
+                        <p>La máxima expresión del lujo con espacios amplios y servicios personalizados.</p>
+                        <div class="room-card__footer">
+                            <a href="contacto.html" class="btn btn--primary">RESERVAR</a>
+                            <span class="bold">$350 / Noche</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="services container section-padding" style="background-color: #f4f4f4;">
+            <div class="text-center">
+                <h2 class="services__title">Experiencias Los Tajibos</h2>
+                <p class="services__subtitle" style="margin-bottom: 3rem;">Servicios diseñados para una estancia inolvidable</p>
+            </div>
+
+            <div class="services__grid grid">
+                <article class="service-item" style="background-image: url('images/spa.jpg');">
+                    <div class="service-item__content">
+                        <i class="fas fa-spa"></i>
+                        <h3>Spa & Relax</h3>
+                    </div>
+                    <div class="service-item__info">
+                        <i class="fas fa-spa"></i>
+                        <h3>Spa & Relax</h3>
+                        <p>Relajación total en nuestras aguas termales y circuitos de spa diseñados para su bienestar físico y mental.</p>
+                    </div>
+                </article>
+
+                <article class="service-item" style="background-image: url('images/breakfast.jpg');">
+                    <div class="service-item__content">
+                        <i class="fas fa-coffee"></i>
+                        <h3>Gastronomía</h3>
+                    </div>
+                    <div class="service-item__info">
+                        <i class="fas fa-coffee"></i>
+                        <h3>Gastronomía</h3>
+                        <p>Inicie sus días con energía, disfrutando de especialidades locales e internacionales en un ambiente inigualable.</p>
+                    </div>
+                </article>
+
+                <article class="service-item" style="background-image: url('images/gym.jpg');">
+                    <div class="service-item__content">
+                        <i class="fas fa-dumbbell"></i>
+                        <h3>Fitness Center</h3>
+                    </div>
+                    <div class="service-item__info">
+                        <i class="fas fa-dumbbell"></i>
+                        <h3>Fitness Center</h3>
+                        <p>Manténgase en forma con nuestro equipamiento de última generación disponible durante toda su estancia.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2026 Los Tajibos Tribute Portfolio Hotel. Cochabamba, Bolivia.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

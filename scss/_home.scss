@@ -1,0 +1,146 @@
+// scss/_home.scss
+@use 'variables' as *;
+
+/* SECCIÓN HERO (Tu imagen fondo.jpg) */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    background: linear-gradient($color-overlay-light, $color-overlay-light), 
+                url('../images/fondo.jpg') no-repeat center/cover;
+
+    &__content {
+        max-width: 900px;
+        z-index: 2;
+    }
+
+    &__title {
+        font-family: $font-title;
+        font-size: 4rem;
+        margin: 1rem 0 2rem;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    }
+    &__subtitle {
+        font-family: $font-body;
+        letter-spacing: 3px;
+        font-size: 0.9rem;
+    }
+}
+
+/* SECCIÓN BIENVENIDA */
+.welcome {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: $color-green-tajibos;
+    color: white;
+
+    &__container { display: flex; flex-wrap: wrap; width: 100%; }
+    &__data { 
+        flex: 1; padding: 5rem 10%; min-width: 300px;
+        display: flex; flex-direction: column; justify-content: center;
+        h2 { font-family: $font-title; font-size: 2.5rem; margin-bottom: 1.5rem; }
+        .welcome__tag { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; display: block; margin-bottom: 0.5rem; }
+    }
+    &__img { flex: 1; min-width: 300px; img { width: 100%; height: 100%; object-fit: cover; display: block; } }
+}
+
+/* SECCIÓN HABITACIONES (3 COLUMNAS RESTAURADAS) */
+.rooms {
+    &__subtitle { 
+        text-transform: uppercase; 
+        font-size: 0.9rem; 
+        letter-spacing: 2px; 
+        color: $color-text-gray; 
+    }
+    &__title { font-family: $font-title; font-size: 3rem; margin-bottom: 3rem; }
+    
+    &__grid { 
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    }
+}
+
+.room-card {
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+
+    &:hover { transform: translateY(-5px); }
+
+    &__img-box { position: relative; overflow: hidden; img { width: 100%; display: block; } }
+    
+    &__specs {
+        position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.8);
+        display: flex; justify-content: space-around; padding: 12px 0; color: white; font-size: 0.8rem;
+    }
+    &__data { 
+        padding: 2rem; h3 { font-family: $font-title; font-size: 1.5rem; margin-bottom: 1rem; color: $color-dark; } 
+    }
+    &__footer { 
+        display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; 
+        a { text-decoration: none; color: $color-dark; font-size: 0.9rem; } 
+        .bold { font-weight: 700; color: $color-primary; } 
+    }
+}
+
+/* SECCIÓN SERVICIOS (INFO NO SE CORTA - CORREGIDO FINAL) */
+.services {
+    &__subtitle { text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
+    &__title { font-family: $font-title; font-size: 2.5rem; margin-bottom: 3rem; }
+    
+    &__grid {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+.service-item {
+    position: relative;
+    // CORRECCIÓN: Aumentamos la altura de la tarjeta de 520px a 580px
+    height: 580px; 
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    cursor: pointer;
+    color: white;
+
+    &::before {
+        content: '';
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.3);
+        transition: 0.4s;
+    }
+
+    &__content {
+        position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        text-align: center; width: 100%; transition: 0.4s; z-index: 2;
+        i { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+        h3 { font-family: $font-title; font-size: 1.5rem; }
+    }
+
+    &__info {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background: $color-overlay-dark;
+        display: flex; flex-direction: column; justify-content: center; align-items: center;
+        // CORRECCIÓN: Reducimos espaciado para ganar espacio de lectura
+        padding: 1rem; 
+        text-align: center; opacity: 0; transition: 0.4s; z-index: 3;
+        
+        i { font-size: 2rem; margin-bottom: 1rem; color: $color-primary; }
+        h3 { font-family: $font-title; margin-bottom: 0.8rem; font-size: 1.3rem; }
+        // CORRECCIÓN: Compactamos interlineado a 1.4 y aseguramos tamaño perfecto
+        p { font-size: 0.9rem; line-height: 1.4; margin: 0; font-family: $font-body; } 
+    }
+
+    // Activación del efecto
+    &:hover, &.is-active {
+        .service-item__content { opacity: 0; }
+        .service-item__info { opacity: 1; }
+    }
+}
