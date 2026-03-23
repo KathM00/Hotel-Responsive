@@ -1,0 +1,50 @@
+@use 'variables' as *;
+
+.contact-page {
+    background-color: $color-primary; // Fondo turquesa como en tu imagen
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 4rem;
+    align-items: start;
+    color: white;
+}
+
+.contact-info {
+    &__title { font-family: $font-title; font-size: 2.5rem; margin-bottom: 2rem; }
+    &__list {
+        list-style: none; padding: 0;
+        li { 
+            display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem;
+            i { color: white; background: $color-dark; padding: 10px; border-radius: 50%; width: 20px; height: 20px; display:flex; justify-content:center; align-items:center;}
+            a { color: white; text-decoration: none; border-bottom: 1px solid white; }
+        }
+    }
+}
+
+.contact-card {
+    background: white;
+    padding: 3rem;
+    color: $color-dark;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
+    h3 { font-family: $font-title; margin-bottom: 2rem; }
+}
+
+.form__group {
+    margin-bottom: 1.5rem;
+    label { display: block; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 600; }
+    input, textarea {
+        width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;
+        &:focus { border-color: $color-primary; outline: none; }
+    }
+}
+
+.form-feedback {
+    margin-top: 1rem; padding: 1rem; border-radius: 4px; display: none;
+    &.success { background: #d4edda; color: #155724; display: block; }
+    &.error { background: #f8d7da; color: #721c24; display: block; }
+}

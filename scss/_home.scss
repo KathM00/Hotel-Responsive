@@ -10,6 +10,7 @@
     text-align: center;
     color: white;
     position: relative;
+    padding-top:$header-height;
     background: linear-gradient($color-overlay-light, $color-overlay-light), 
                 url('../images/fondo.jpg') no-repeat center/cover;
 
@@ -96,7 +97,9 @@
     &__grid {
         display: grid;
         gap: 1.5rem;
+        gap:1.5rem;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        justify-content: center;
     }
 }
 
@@ -127,9 +130,10 @@
     &__info {
         position: absolute; top: 0; left: 0; width: 100%; height: 100%;
         background: $color-overlay-dark;
-        display: flex; flex-direction: column; justify-content: center; align-items: center;
-        // CORRECCIÓN: Reducimos espaciado para ganar espacio de lectura
-        padding: 1rem; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
         text-align: center; opacity: 0; transition: 0.4s; z-index: 3;
         
         i { font-size: 2rem; margin-bottom: 1rem; color: $color-primary; }
