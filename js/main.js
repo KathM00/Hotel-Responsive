@@ -1,52 +1,79 @@
 // js/main.js
 
-// 1. MENU RESPONSIVE (Mejorado con accesibilidad)
-const navToggle = document.getElementById('nav-toggle');
-const navMenu = document.getElementById('nav-menu');
+document.addEventListener('DOMContentLoaded', () => {
 
-if(navToggle) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('show-menu');
-        // Opcional: cambiar icono de barras a 'X'
-        const icon = navToggle.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
-    });
-}
+    // 1. MENU RESPONSIVE (Mejorado con abrir/cerrar)
+    const navMenu = document.getElementById('nav-menu'),
+          navToggle = document.getElementById('nav-toggle'),
+          navClose = document.getElementById('nav-close');
 
-// 2. VALIDACIÓN DE FORMULARIO DE CONTACTO
-const contactForm = document.getElementById('contact-form');
-const feedback = document.getElementById('form-feedback');
+    /* Mostrar menú */
+    if(navToggle){
+        navToggle.addEventListener('click', () =>{
+            navMenu.classList.add('show-menu');
+        });
+    }
 
-if(contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // Evitar recarga [cite: 742]
+    /* Ocultar menú */
+    if(navClose){
+        navClose.addEventListener('click', () =>{
+            navMenu.classList.remove('show-menu');
+        });
+    }
+
+    /* Ocultar menú al hacer click en un link */
+    const navLink = document.querySelectorAll('.nav__link');
+
+    const linkAction = () =>{
+        const navMenu = document.getElementById('nav-menu');
+        navMenu.classList.remove('show-menu');
+    }
+    navLink.forEach(n => n.addEventListener('click', linkAction));
+
+
+    // 2. EFECTO HEADER TRANSPARENTE A SCROLL
+    const header = document.getElementById('header');
+    
+    const scrollHeader = () =>{
+        // Cuando el scroll es mayor a 50px, añadir la clase 'header--scroll'
+        if(window.scrollY >= 50) header.classList.add('header--scroll');
+        else header.classList.remove('header--scroll');
+    }
+    window.addEventListener('scroll', scrollHeader);
+    scrollHeader(); // Ejecutar al cargar para verificar posición inicial
+
+
+    // 3. FORMULARIO DE CONTACTO DINÁMICO (Teléfono)
+    const contactForm = document.getElementById('contact-form');
+    
+    if (contactForm) {
+        const phoneInputGroup = document.getElementById('phone-input-group');
+        const phoneInput = document.getElementById('phone');
         
-        const nombre = document.getElementById('nombre').value;
-        const email = document.getElementById('email').value;
+        // Escuchar cambios en los radio buttons del método de contacto
+        contactForm.addEventListener('change', (e) => {
+            if (e.target.name === 'contact_method') {
+                if (e.target.value === 'phone') {
+                    // Mostrar campo teléfono, hacerlo requerido
+                    phoneInputGroup.style.display = 'block';
+                    phoneInput.setAttribute('required', '');
+                } else {
+                    // Ocultar campo teléfono, quitar requerido
+                    phoneInputGroup.style.display = 'none';
+                    phoneInput.removeAttribute('required');
+                }
+            }
+        });
+    }
 
-        // Validación simple [cite: 768, 2831]
-        if(nombre.trim() === "" || email.trim() === "") {
-            showFeedback("Por favor, completa los campos obligatorios.", "error");
-        } else {
-            showFeedback("¡Gracias! Tu mensaje ha sido enviado con éxito.", "success");
-            contactForm.reset();
-        }
-    });
-}
 
-function showFeedback(msg, type) {
-    feedback.textContent = msg;
-    feedback.className = `form-feedback ${type}`;
-    setTimeout(() => { feedback.style.display = 'none'; }, 5000);
-}
+    // 4. INTERACTIVIDAD SERVICIOS (Tu código existente)
+    const serviceItems = document.querySelectorAll('.service-item');
 
-// 3. SMOOTH SCROLL (Navegación fluida)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+    serviceItems.forEach(item => {
+        item.addEventListener('click', () => {
+            serviceItems.forEach(el => el.classList.remove('is-active'));
+            item.classList.add('is-active');
         });
     });
 });
