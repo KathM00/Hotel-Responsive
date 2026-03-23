@@ -112,50 +112,74 @@
                     </div>
                 </article>
             </div>
-            </section>
+        </section>
 
-        <section id="services" class="services container section-padding">
-            <div class="text-center">
+        <section id="services" class="services section-padding">
+            <div class="container text-center">
                 <p class="services__subtitle">Servicios</p>
                 <h2 class="services__title">exclusivos</h2>
             </div>
 
-            <div class="services__grid grid">
-                <article class="service-item" style="background-image: url('images/spa.jpg');">
-                    <div class="service-item__content">
-                        <i class="fas fa-spa"></i>
-                        <h3>Hidromasaje</h3>
-                    </div>
-                    <div class="service-item__info">
-                        <i class="fas fa-spa"></i>
-                        <h3>Hidromasaje</h3>
-                        <p>Relajación total en nuestras aguas termales y circuitos de spa diseñados para su bienestar físico y mental.</p>
-                    </div>
-                </article>
+            <div class="carousel container">
+                <button class="carousel__btn carousel__btn--prev" id="prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
 
-                <article class="service-item" style="background-image: url('images/desayuno.jpg');">
-                    <div class="service-item__content">
-                        <i class="fas fa-coffee"></i>
-                        <h3>Desayuno Buffet</h3>
-                    </div>
-                    <div class="service-item__info">
-                        <i class="fas fa-coffee"></i>
-                        <h3>Desayuno Buffet</h3>
-                        <p>Inicie sus días con energía, disfrutando de especialidades locales e internacionales en un ambiente inigualable.</p>
-                    </div>
-                </article>
+                <div class="carousel__window">
+                    <div class="carousel__track" id="carousel-track">
+                        <article class="service-item" style="background-image: url('images/spa.jpg');">
+                            <div class="service-item__content">
+                                <i class="fas fa-spa"></i>
+                                <h3>Hidromasaje</h3>
+                            </div>
+                            <div class="service-item__info">
+                                <i class="fas fa-spa"></i>
+                                <h3>Hidromasaje</h3>
+                                <p>Relajación total en nuestras aguas termales y de spa diseñados para su bienestar.</p>
+                            </div>
+                        </article>
 
-                <article class="service-item" style="background-image: url('images/gym.jpg');">
-                    <div class="service-item__content">
-                        <i class="fas fa-dumbbell"></i>
-                        <h3>Gimnasio</h3>
+                        <article class="service-item" style="background-image: url('images/desayuno.jpg');">
+                            <div class="service-item__content">
+                                <i class="fas fa-coffee"></i>
+                                <h3>Desayuno Buffet</h3>
+                            </div>
+                            <div class="service-item__info">
+                                <i class="fas fa-coffee"></i>
+                                <h3>Desayuno Buffet</h3>
+                                <p>Inicie sus días con energía, disfrutando de nuestras especialidades locales e internacionales.</p>
+                            </div>
+                        </article>
+
+                        <article class="service-item" style="background-image: url('images/gym.jpg');">
+                            <div class="service-item__content">
+                                <i class="fas fa-dumbbell"></i>
+                                <h3>Gimnasio</h3>
+                            </div>
+                            <div class="service-item__info">
+                                <i class="fas fa-dumbbell"></i>
+                                <h3>Gimnasio</h3>
+                                <p>Manténgase en forma con nuestro equipamiento de última generación.</p>
+                            </div>
+                        </article>
+
+                        <article class="service-item" style="background-image: url('images/peluqueria.jpg');">
+                            <div class="service-item__content">
+                                <i class="fas fa-cut"></i>
+                                <h3>Peluquería</h3>
+                            </div>
+                            <div class="service-item__info">
+                                <i class="fas fa-cut"></i>
+                                <h3>Peluquería</h3>
+                                <p>Estilo y cuidado personal con nuestros profesionales altamente capacitados.</p>
+                            </div>
+                        </article>
                     </div>
-                    <div class="service-item__info">
-                        <i class="fas fa-dumbbell"></i>
-                        <h3>Gimnasio</h3>
-                        <p>Manténgase en forma con nuestro equipamiento de última generación disponible durante toda su estancia.</p>
-                    </div>
-                </article>
+                </div>
+
+                <button class="carousel__btn carousel__btn--next" id="next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
 
             <div class="text-center" style="margin-top: 3rem;">
@@ -192,10 +216,16 @@
                             <div class="form__group">
                                 <label>Medio de contacto *</label>
                                 <div class="form__radio">
-                                    <input type="radio" name="medio" value="email" id="r-email"> <label for="r-email">Email</label>
-                                    <input type="radio" name="medio" value="tel" id="r-tel"> <label for="r-tel">Teléfono</label>
+                                    <input type="radio" name="contact_method" value="email" id="r-email" checked> <label for="r-email">Email</label>
+                                    <input type="radio" name="contact_method" value="phone" id="r-tel"> <label for="r-tel">Teléfono</label>
                                 </div>
                             </div>
+
+                            <div class="form__group" id="phone-input-group" style="display: none;">
+                                <label for="phone">Número de teléfono *</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+
                             <div class="form__group">
                                 <label for="mensaje">Precise su requerimiento *</label>
                                 <textarea id="mensaje" rows="4" required></textarea>
@@ -204,7 +234,7 @@
                         </form>
                         <div id="form-feedback" class="form-feedback"></div>
                         <div class="contact__map-link text-center">
-                            <a href="https://goo.gl/maps/tu-enlace-a-google-maps" target="_blank" class="btn btn--outline-dark btn--small">
+                            <a href="#" target="_blank" class="btn btn--outline-dark btn--small">
                                 <i class="fas fa-external-link-alt"></i> Ver en Google Maps
                             </a>
                         </div>
@@ -212,31 +242,32 @@
                 </div>
             </section>
         </section>              
-            <section class="follow-us section-padding">
-                <div class="container text-center">
-                    <p class="follow-us__subtitle">CONECTA CON NOSOTROS</p>
-                    <h2 class="follow-us__title">Síguenos</h2>
-                    
-                    <div class="follow-us__social">
-                        <a href="https://facebook.com" target="_blank" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                            <span class="social-icon__name">Facebook</span>
-                        </a>
-                        <a href="https://instagram.com" target="_blank" class="social-icon">
-                            <i class="fab fa-instagram"></i>
-                            <span class="social-icon__name">Instagram</span>
-                        </a>
-                        <a href="https://linkedin.com" target="_blank" class="social-icon">
-                            <i class="fab fa-linkedin-in"></i>
-                            <span class="social-icon__name">LinkedIn</span>
-                        </a>
-                        <a href="https://tripadvisor.com" target="_blank" class="social-icon">
-                            <i class="fab fa-tripadvisor"></i>
-                            <span class="social-icon__name">TripAdvisor</span>
-                        </a>
-                    </div>
+
+        <section class="follow-us section-padding">
+            <div class="container text-center">
+                <p class="follow-us__subtitle">CONECTA CON NOSOTROS</p>
+                <h2 class="follow-us__title">Síguenos</h2>
+                
+                <div class="follow-us__social">
+                    <a href="#" target="_blank" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <span class="social-icon__name">Facebook</span>
+                    </a>
+                    <a href="#" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                        <span class="social-icon__name">Instagram</span>
+                    </a>
+                    <a href="#" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                        <span class="social-icon__name">LinkedIn</span>
+                    </a>
+                    <a href="#" target="_blank" class="social-icon">
+                        <i class="fab fa-tripadvisor"></i>
+                        <span class="social-icon__name">TripAdvisor</span>
+                    </a>
                 </div>
-            </section>
+            </div>
+        </section>
         
     </main>
 

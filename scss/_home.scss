@@ -1,7 +1,7 @@
 // scss/_home.scss
 @use 'variables' as *;
 
-/* SECCIÓN HERO (Tu imagen fondo.jpg) */
+/* SECCIÓN HERO */
 .hero {
     height: 100vh;
     display: flex;
@@ -10,7 +10,6 @@
     text-align: center;
     color: white;
     position: relative;
-    padding-top:$header-height;
     background: linear-gradient($color-overlay-light, $color-overlay-light), 
                 url('../images/fondo.jpg') no-repeat center/cover;
 
@@ -49,7 +48,7 @@
     &__img { flex: 1; min-width: 300px; img { width: 100%; height: 100%; object-fit: cover; display: block; } }
 }
 
-/* SECCIÓN HABITACIONES (3 COLUMNAS RESTAURADAS) */
+/* SECCIÓN HABITACIONES */
 .rooms {
     &__subtitle { 
         text-transform: uppercase; 
@@ -89,29 +88,59 @@
     }
 }
 
-/* SECCIÓN SERVICIOS (INFO NO SE CORTA - CORREGIDO FINAL) */
+/* SECCIÓN SERVICIOS CON CARRUSEL */
 .services {
     &__subtitle { text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
     &__title { font-family: $font-title; font-size: 2.5rem; margin-bottom: 3rem; }
-    
-    &__grid {
-        display: grid;
-        gap: 1.5rem;
-        gap:1.5rem;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &__window {
+        overflow: hidden;
+        width: 100%;
+        margin: 0 10px;
+    }
+
+    &__track {
+        display: flex;
+        gap: 20px;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    &__btn {
+        background: white;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
         justify-content: center;
+        font-size: 1.2rem;
+        &:hover { background: $color-primary; color: white; }
     }
 }
 
 .service-item {
-    position: relative;
-    // CORRECCIÓN: Aumentamos la altura de la tarjeta de 520px a 580px
+    min-width: calc(33.333% - 13.4px); // Asegura 3 por fila en PC
     height: 580px; 
     background-size: cover;
     background-position: center;
+    position: relative;
     overflow: hidden;
     cursor: pointer;
     color: white;
+
+    @media (max-width: $tablet) {
+        min-width: 100%;
+    }
 
     &::before {
         content: '';
@@ -134,15 +163,14 @@
         flex-direction: column; 
         justify-content: center; 
         align-items: center; 
+        padding: 1.5rem;
         text-align: center; opacity: 0; transition: 0.4s; z-index: 3;
         
         i { font-size: 2rem; margin-bottom: 1rem; color: $color-primary; }
         h3 { font-family: $font-title; margin-bottom: 0.8rem; font-size: 1.3rem; }
-        // CORRECCIÓN: Compactamos interlineado a 1.4 y aseguramos tamaño perfecto
         p { font-size: 0.9rem; line-height: 1.4; margin: 0; font-family: $font-body; } 
     }
 
-    // Activación del efecto
     &:hover, &.is-active {
         .service-item__content { opacity: 0; }
         .service-item__info { opacity: 1; }

@@ -151,7 +151,7 @@
     display: none;
   }
 }
-/* SECCIÓN HERO (Tu imagen fondo.jpg) */
+/* SECCIÓN HERO */
 .hero {
   height: 100vh;
   display: flex;
@@ -160,7 +160,6 @@
   text-align: center;
   color: white;
   position: relative;
-  padding-top: 80px;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/fondo.jpg") no-repeat center/cover;
 }
 .hero__content {
@@ -222,7 +221,7 @@
   display: block;
 }
 
-/* SECCIÓN HABITACIONES (3 COLUMNAS RESTAURADAS) */
+/* SECCIÓN HABITACIONES */
 .rooms__subtitle {
   text-transform: uppercase;
   font-size: 0.9rem;
@@ -292,7 +291,7 @@
   color: #46C7B7;
 }
 
-/* SECCIÓN SERVICIOS (INFO NO SE CORTA - CORREGIDO FINAL) */
+/* SECCIÓN SERVICIOS CON CARRUSEL */
 .services__subtitle {
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -303,22 +302,55 @@
   font-size: 2.5rem;
   margin-bottom: 3rem;
 }
-.services__grid {
-  display: grid;
-  gap: 1.5rem;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.carousel__window {
+  overflow: hidden;
+  width: 100%;
+  margin: 0 10px;
+}
+.carousel__track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+}
+.carousel__btn {
+  background: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  font-size: 1.2rem;
+}
+.carousel__btn:hover {
+  background: #46C7B7;
+  color: white;
 }
 
 .service-item {
-  position: relative;
+  min-width: calc(33.333% - 13.4px);
   height: 580px;
   background-size: cover;
   background-position: center;
+  position: relative;
   overflow: hidden;
   cursor: pointer;
   color: white;
+}
+@media (max-width: 768px) {
+  .service-item {
+    min-width: 100%;
+  }
 }
 .service-item::before {
   content: "";
@@ -360,6 +392,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1.5rem;
   text-align: center;
   opacity: 0;
   transition: 0.4s;
