@@ -4,11 +4,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. MENU RESPONSIVE
     const navMenu = document.getElementById('nav-menu'),
-          navToggle = document.getElementById('nav-toggle');
+          navToggle = document.getElementById('nav-toggle'),
+          navClose = document.getElementById('nav-close'); // <- Añadir esto
 
     if(navToggle){
         navToggle.addEventListener('click', () =>{
-            navMenu.classList.toggle('show-menu');
+            navMenu.classList.add('show-menu'); // Cambiado a 'add'
+        });
+    }
+
+    // Ocultar menú al presionar la X
+    if(navClose){
+        navClose.addEventListener('click', () =>{
+            navMenu.classList.remove('show-menu');
         });
     }
 
@@ -17,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navMenu.classList.remove('show-menu');
     }
     navLink.forEach(n => n.addEventListener('click', linkAction));
-
+    
 
     // 2. EFECTO HEADER STICKY
     const header = document.getElementById('header');
